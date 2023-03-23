@@ -3,33 +3,33 @@ namespace Newman {
     /**
      * CalibrationAt_pH4
      */
-    //% blockId=CalibrationAt_pH4 block="CalibrationAt_pH4"
-	export function CalibrationAt_pH4(): number {
+    //% blockId=VoltageAtPH4 block="Voltage at pH 4"
+    export function pH4Voltage(): number {
         return pins.analogReadPin(AnalogPin.P0) / 1024 * 5000;
     }
 
     /**
      * CalibrationAt_pH7
      */
-    //% blockId=CalibrationAt_pH7 block="CalibrationAt_pH7"
-	export function CalibrationAt_pH7(): number {
+    //% blockId=VoltageAtPH7 block="Voltage at pH 7"
+    export function pH7_Voltage(): number {
         return pins.analogReadPin(AnalogPin.P0) / 1024 * 5000;
     }
 
     /**
     * pHValue
     */
-    //% blockId=pHValue block="Voltage At pH4 %acidVoltage|pH7 %VoltageAtpH7"
+    //% blockId=pHValue block="Voltage At pH4 %Voltage_pH4|pH7 %Voltage_pH7"
     //%blockGap=2 weight=1
-	export function pHValue(acidVoltage: number, neutralVoltage: number): number {
+    export function pH_Value(Voltage_pH4: number, Voltage_pH7: number): number {
         let slope = 0;
         let Numberercept = 0;
         let phValue;
 
-        slope = (7 - 4) / ((neutralVoltage - 1500) / 3 - (acidVoltage - 1500) / 3);
-        Numberercept = 7 - slope * (neutralVoltage - 1500) / 3;
+        slope = (7 - 4) / ((Voltage_pH7 - 1500) / 3 - (Voltage_pH4 - 1500) / 3);
+        Numberercept = 7 - slope * (Voltage_pH7 - 1500) / 3;
         phValue = slope * ((pins.analogReadPin(AnalogPin.P0) / 1024 * 5000) - 1500) / 3 + Numberercept;
         return Math.round(phValue);
     }
-   
+
 }

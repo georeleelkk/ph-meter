@@ -1,10 +1,11 @@
 {
-    "name": "pH meter",
+    "name": "pH meter 2",
     "description": "",
     "dependencies": {
         "core": "*",
         "radio": "*",
-        "microphone": "*"
+        "microphone": "*",
+        "pH meter": "github:georeleelkk/ph-meter#343b640def80706dc94f7fb4d1428785ee8d7f2d"
     },
     "files": [
         "main.blocks",
