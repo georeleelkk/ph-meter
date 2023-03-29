@@ -1,20 +1,12 @@
-//% weight=0 color=#3CB371 icon="\uf0ad" block="Newman"
 namespace Newman {
     /**
-     * CalibrationAt_pH4
+     * ReadVoltage
      */
-    //% blockId=VoltageAtPH4 block="Voltage at pH 4"
-    export function pH4Voltage(): number {
+    //% blockId=ReadVoltage block="ReadVoltage"
+    export function ReadVoltage(): number {
         return pins.analogReadPin(AnalogPin.P0) / 1024 * 5000;
     }
-
-    /**
-     * CalibrationAt_pH7
-     */
-    //% blockId=VoltageAtPH7 block="Voltage at pH 7"
-    export function pH7_Voltage(): number {
-        return pins.analogReadPin(AnalogPin.P0) / 1024 * 5000;
-    }
+   
 
     /**
     * pHValue
